@@ -18,12 +18,15 @@ export class ShoppingEditComponent implements OnInit {
   }
 
   onAddItem() {
-    const newIngredient = new Ingredient(
-      this.nameInputRef.nativeElement.value,
-      this.amountInputRef.nativeElement.value
-    );
-
-    this.ingredientAdded.emit(newIngredient);
+    const nameInput = this.nameInputRef.nativeElement.value;
+    const amountInput = this.amountInputRef.nativeElement.value;
+    if (nameInput && amountInput > 0) {
+      const  newIngredient = new Ingredient(nameInput, amountInput);
+      this.ingredientAdded.emit(newIngredient);
+      // clean the inputs
+      this.nameInputRef.nativeElement.value = '';
+      this.amountInputRef.nativeElement.value = '';
+    }
   }
 
 }
