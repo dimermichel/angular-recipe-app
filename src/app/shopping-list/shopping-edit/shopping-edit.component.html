@@ -34,8 +34,13 @@
             style="margin: 3px;"
             [disabled]="!f.valid"
           >{{editMode ? '✓ Update' : '✚ Add'}}</button>
-          <button class="btn btn-danger" type="button" style="margin: 3px;"> ⌫ Delete</button>
-          <button class="btn btn-primary" type="button" style="margin: 3px;" (click)="onClear(f)">Clear</button>
+          <button
+            class="btn btn-danger"
+            type="button" style="margin: 3px;"
+            (click)="onDelete()"
+            *ngIf="editMode"
+          > ⌫ Delete</button>
+          <button class="btn btn-primary" type="button" style="margin: 3px;" (click)="onClear()">Clear</button>
         </div>
       </div>
     </form>
