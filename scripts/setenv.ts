@@ -13,7 +13,8 @@ const targetPath = isProduction
 const environmentFileContent = `
 export const environment = {
    production: ${isProduction},
-   BASE_URL: "${process.env.BASE_URL}"
+   BASE_URL: "${process.env.BASE_URL}",
+   API_KEY: "${process.env.API_KEY}"
 };
 `;
 // write the content to the respective file
